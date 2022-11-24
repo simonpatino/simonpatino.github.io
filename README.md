@@ -7,7 +7,7 @@
 
 
 
-Do you want to learn how programming?,
+Do you want to learn how programming?
 
 ----->  www.platzi.com/marca
 
