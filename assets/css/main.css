@@ -2016,9 +2016,9 @@
 				-ms-transition: opacity 0.2s ease-in-out;
 				transition: opacity 0.2s ease-in-out;
 				border-radius: 0.35em;
-				border: solid 3px rgba(255, 255, 255, 0.5);
+				border: solid 3px ;
 				color: #fff;
-				content: 'Conoce más';
+				content: 'More information';
 				display: inline-block;
 				font-size: 0.8em;
 				font-weight: 400;
@@ -2028,7 +2028,7 @@
 				opacity: 0;
 				padding: 0 1.5em;
 				position: absolute;
-				text-align: center;
+				text-align: auto;
 				text-decoration: none;
 				top: 50%;
 				white-space: nowrap;
