@@ -1716,7 +1716,7 @@
 	}
 
 	header p {
-		color: #b2b2b2;
+		color: #000;
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
@@ -2331,11 +2331,11 @@
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		background-color: transparent;
 		border-radius: 0.35em;
-		border: solid 3px #efefef;
-		color: #787878 !important;
+		border: solid 3px #efefef;  /*botom*/
+		color: #000 !important;
 		cursor: pointer;
 		display: inline-block;
-		font-weight: 400;
+		font-weight: 500;
 		height: 3.15em;
 		height: calc(2.75em + 6px);
 		line-height: 2.75em;
@@ -2547,13 +2547,45 @@
 
 	#main {
 		margin-left: 35%;
-		max-width: 54em;
+		
+		background-image: url("images/2.jpg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-color: #f0f0f0; 
 		padding: 8em 4em 4em 4em;
 		width: calc(100% - 35%);
 	}
 
+	#two {
+		color: rgb(0, 0, 0); /* Change "red" to the desired color */
+	}
+
+	#one  {
+		
+		color: #555555; /* Change "red" to the desired color */
+		font-style: italic;
+		font-size: 1.1em;
+	}
+
+	#two h2{
+		color: rgb(0, 0, 0); /* Change "red" to the desired color */
+		font-style: italic;
+		
+		font-size: 1.8em;
+		
+	}
+
+	#one  h2{
+		color: #000; /* Change "red" to the desired color */
+		font-style: italic
+	}
+
+
+	
+
+
 		#main > section {
-			border-top: solid 2px #efefef;
+			
 			margin: 4em 0 0 0;
 			padding: 4em 0 0 0;
 		}
