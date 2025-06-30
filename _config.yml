@@ -1,0 +1,18 @@
+# Site settings
+title: Simón Patiño
+author: Simón Patiño
+description: Computer science - Aerospace engineering. Specialized in programming, numerical methods, and Industry 4.0 technologies.
+url: "https://simonpatino.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Exclude files from Jekyll build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE.txt
