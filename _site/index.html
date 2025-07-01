@@ -12,9 +12,10 @@
 			body {
 				background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
 				background-size: 400% 400%;
-				animation: subtleGradient 30s ease infinite;
+				animation: subtleGradient 20s ease infinite;
 				min-height: 100vh;
 				position: relative;
+				overflow-x: hidden;
 			}
 
 			@keyframes subtleGradient {
@@ -23,63 +24,151 @@
 				100% { background-position: 0% 50%; }
 			}
 
+			/* Interactive Satellite Follower */
+			.satellite-follower {
+				position: fixed;
+				width: 40px;
+				height: 40px;
+				pointer-events: none;
+				z-index: -1;
+				transition: all 0.3s ease-out;
+				transform-origin: center;
+			}
+
+			.satellite-icon {
+				font-size: 36px;
+				color: rgba(0, 123, 255, 0.6);
+				text-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+				animation: satelliteFloat 4s ease-in-out infinite;
+			}
+
+			@keyframes satelliteFloat {
+				0%, 100% { transform: translateY(0px) rotate(0deg); }
+				50% { transform: translateY(-10px) rotate(180deg); }
+			}
+
+			/* Orbital Trail Effect */
+			.satellite-trail {
+				position: fixed;
+				width: 4px;
+				height: 4px;
+				background: rgba(0, 123, 255, 0.3);
+				border-radius: 50%;
+				pointer-events: none;
+				z-index: -1;
+				animation: trailFade 2s ease-out forwards;
+			}
+
+			@keyframes trailFade {
+				0% { 
+					opacity: 0.8; 
+					transform: scale(1);
+				}
+				100% { 
+					opacity: 0; 
+					transform: scale(0.2);
+				}
+			}
+
 			/* Subtle floating elements */
-			.stars {
+			.background-elements {
 				position: fixed;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 100%;
 				pointer-events: none;
-				z-index: -1;
+				z-index: -2;
 			}
 
-			.star {
+			.floating-element {
 				position: absolute;
 				background: rgba(0, 123, 255, 0.1);
 				border-radius: 50%;
-				animation: gentleFloat 20s ease-in-out infinite;
+				animation: gentleFloat 15s ease-in-out infinite;
 			}
 
-			.star:nth-child(1) { width: 8px; height: 8px; top: 10%; left: 15%; animation-delay: 0s; }
-			.star:nth-child(2) { width: 6px; height: 6px; top: 70%; left: 85%; animation-delay: 5s; }
-			.star:nth-child(3) { width: 10px; height: 10px; top: 40%; left: 70%; animation-delay: 10s; }
-			.star:nth-child(4) { width: 4px; height: 4px; top: 80%; left: 20%; animation-delay: 15s; }
+			.floating-element:nth-child(1) { 
+				width: 8px; height: 8px; 
+				top: 10%; left: 15%; 
+				animation-delay: 0s; 
+			}
+			.floating-element:nth-child(2) { 
+				width: 6px; height: 6px; 
+				top: 70%; left: 85%; 
+				animation-delay: 5s; 
+			}
+			.floating-element:nth-child(3) { 
+				width: 10px; height: 10px; 
+				top: 40%; left: 70%; 
+				animation-delay: 10s; 
+			}
 
 			@keyframes gentleFloat {
 				0%, 100% { transform: translateY(0px); opacity: 0.1; }
 				50% { transform: translateY(-15px); opacity: 0.3; }
 			}
 
-			/* Enhanced readability */
+			/* Perfect readability */
 			.container {
 				position: relative;
 				z-index: 1;
 			}
 
-			/* Clean card styling */
 			.card {
-				background: rgba(255, 255, 255, 0.9) !important;
-				border: 1px solid rgba(0, 0, 0, 0.1);
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				background: rgba(255, 255, 255, 0.95) !important;
+				border: 1px solid rgba(0, 0, 0, 0.08);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(5px);
+				border-radius: 12px;
 			}
 
 			.bg-light {
-				background: rgba(255, 255, 255, 0.8) !important;
+				background: rgba(255, 255, 255, 0.9) !important;
 			}
 
 			.bg-dark {
 				background: rgba(33, 37, 41, 0.95) !important;
 			}
+
+			/* Excellent text readability */
+			h1, h2, h3, h4, h5, h6 {
+				color: inherit;
+				text-shadow: none;
+			}
+
+			.text-white {
+				text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+			}
+
+			/* Hero section enhancement */
+			.hero-section .position-relative {
+				border-radius: 12px;
+				overflow: hidden;
+			}
+
+			/* Smooth interactions */
+			.satellite-follower.active {
+				transform: scale(1.2);
+			}
+
+			.satellite-follower.active .satellite-icon {
+				color: rgba(0, 123, 255, 0.8);
+				text-shadow: 0 0 30px rgba(0, 123, 255, 0.6);
+			}
 		</style>
 	</head>
 	<body id="top">
+		<!-- Interactive Satellite Follower -->
+		<div class="satellite-follower" id="satelliteFollower">
+			<i class="fas fa-satellite satellite-icon"></i>
+		</div>
+
 		<!-- Subtle Background Elements -->
-		<div class="stars">
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
+		<div class="background-elements">
+			<div class="floating-element"></div>
+			<div class="floating-element"></div>
+			<div class="floating-element"></div>
 		</div>
 
 		<div class="container">
@@ -507,6 +596,74 @@
 		
 		<!-- Scripts + Google Analytics -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+		<!-- Satellite Follower Script -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const satellite = document.getElementById('satelliteFollower');
+				let mouseX = 0;
+				let mouseY = 0;
+				let satelliteX = 0;
+				let satelliteY = 0;
+
+				// Update mouse position
+				document.addEventListener('mousemove', function(e) {
+					mouseX = e.clientX;
+					mouseY = e.clientY;
+				});
+
+				// Smooth satellite following with delay
+				function updateSatellitePosition() {
+					const speed = 0.05; // Adjust for smoother/faster following
+					
+					satelliteX += (mouseX - satelliteX) * speed;
+					satelliteY += (mouseY - satelliteY) * speed;
+					
+					satellite.style.left = satelliteX + 'px';
+					satellite.style.top = satelliteY + 'px';
+					
+					requestAnimationFrame(updateSatellitePosition);
+				}
+
+				// Start the animation
+				updateSatellitePosition();
+
+				// Add active state on mouse movement
+				let moveTimeout;
+				document.addEventListener('mousemove', function() {
+					satellite.classList.add('active');
+					clearTimeout(moveTimeout);
+					moveTimeout = setTimeout(() => {
+						satellite.classList.remove('active');
+					}, 1000);
+				});
+
+				// Create orbital trail effect
+				let lastTrailTime = 0;
+				document.addEventListener('mousemove', function(e) {
+					const now = Date.now();
+					if (now - lastTrailTime > 100) { // Create trail every 100ms
+						createTrail(e.clientX, e.clientY);
+						lastTrailTime = now;
+					}
+				});
+
+				function createTrail(x, y) {
+					const trail = document.createElement('div');
+					trail.className = 'satellite-trail';
+					trail.style.left = x + 'px';
+					trail.style.top = y + 'px';
+					document.body.appendChild(trail);
+					
+					// Remove trail after animation
+					setTimeout(() => {
+						if (trail.parentNode) {
+							trail.parentNode.removeChild(trail);
+						}
+					}, 2000);
+				}
+			});
+		</script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8DT5E4R23G"></script>
